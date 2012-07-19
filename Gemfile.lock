@@ -1,0 +1,18 @@
+PATH
+  remote: ~/Code/freerange/mocha
+  specs:
+    mocha (0.12.1)
+      metaclass (~> 0.0.1)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    metaclass (0.0.1)
+    minitest (3.2.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  minitest
+  mocha!

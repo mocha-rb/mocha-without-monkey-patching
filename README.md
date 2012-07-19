@@ -1,5 +1,13 @@
 ## Mocha integration with MiniTest without monkey-patching
 
+Running the test shown below demonstrates Mocha and MiniTest operating together in perfect harmony without the aid of monkey-patching. See [`Mocha::Integration::MiniTest`](https://github.com/freerange/mocha-without-monkey-patching/blob/master/lib/mocha/integration/mini_test.rb) for the gory details. Note that this relies on an as yet unreleased version of Mocha (specifically for the  `Mocha::ExpectationErrorFactory.exception_class` behaviour).
+
+There are 10 tests in all and 9 of them should fail. Only the tests with expectations or assertions should count in the number of assertions (i.e. not the tests with unexpected invocations), making 6 in total.
+
+I'm pretty confident that partial mocking should behave the same as full mocking, so I've only included two partial mocking tests (the ones with `real_object` in their names).
+
+I haven't yet looked into what happens with errors as opposed to failures - this is relevant when thinking about some of the Mocha configuration options (e.g. `Mocha::Configuration.prevent(:stubbing_non_existent_method)`).
+
 ```
 bundle install
 ruby -Itest test/foo_test.rb

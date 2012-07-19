@@ -1,5 +1,6 @@
-PATH
-  remote: ~/Code/freerange/mocha
+GIT
+  remote: git://github.com/freerange/mocha.git
+  revision: 506345ff4846aebceb0afe3922e79c469e22c909
   specs:
     mocha (0.12.1)
       metaclass (~> 0.0.1)

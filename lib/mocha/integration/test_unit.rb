@@ -2,8 +2,6 @@ require 'mocha_standalone'
 require 'mocha/expectation_error'
 require 'test/unit/assertionfailederror'
 
-Mocha::ExpectationErrorFactory.exception_class = Test::Unit::AssertionFailedError
-
 module Mocha
   module Integration
     module TestUnit
@@ -21,6 +19,8 @@ module Mocha
       include Mocha::API
 
       def self.included(mod)
+        Mocha::ExpectationErrorFactory.exception_class = Test::Unit::AssertionFailedError
+
         mod.setup :mocha_setup
 
         mod.cleanup do

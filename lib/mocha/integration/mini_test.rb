@@ -2,8 +2,6 @@ require 'mocha_standalone'
 require 'mocha/expectation_error'
 require 'minitest/unit'
 
-Mocha::ExpectationErrorFactory.exception_class = MiniTest::Assertion
-
 module Mocha
   module Integration
     module MiniTest
@@ -19,6 +17,10 @@ module Mocha
       end
 
       include Mocha::API
+
+      def self.included(mod)
+        Mocha::ExpectationErrorFactory.exception_class = ::MiniTest::Assertion
+      end
 
       def before_setup
         mocha_setup

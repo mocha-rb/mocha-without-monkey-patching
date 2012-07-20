@@ -28,7 +28,7 @@ module Mocha
           mocha_verify(assertion_counter)
         end
 
-        mod.teardown :mocha_teardown
+        mod.teardown :mocha_teardown, after: :append
       end
     end
   end

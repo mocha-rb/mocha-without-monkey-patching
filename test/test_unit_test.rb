@@ -1,24 +1,26 @@
 require 'test_helper'
-require 'mocha/integration/mini_test'
 
-class FooTest < MiniTest::Unit::TestCase
-  include Mocha::Integration::MiniTest
+require 'test/unit'
+require 'mocha/integration/test_unit'
+
+class TestUnitTest < Test::Unit::TestCase
+  include Mocha::Integration::TestUnit
 
   def setup
-    if __name__ == "test_mock_object_unexpected_invocation_in_setup"
+    if name[/^test_mock_object_unexpected_invocation_in_setup/]
       mock = mock("not expecting invocation")
       mock.unexpected
-    elsif __name__ == "test_mock_object_unsatisfied_expectation_in_setup"
+    elsif name[/^test_mock_object_unsatisfied_expectation_in_setup/]
       mock = mock("expecting invocation")
       mock.expects(:expected)
     end
   end
 
   def teardown
-    if __name__ == "test_mock_object_unexpected_invocation_in_teardown"
+    if name[/^test_mock_object_unexpected_invocation_in_teardown/]
       mock = mock("not expecting invocation")
       mock.unexpected
-    elsif __name__ == "test_mock_object_unsatisfied_expectation_in_teardown"
+    elsif name[/^test_mock_object_unsatisfied_expectation_in_teardown/]
       mock = mock("expecting invocation")
       mock.expects(:expected)
     end

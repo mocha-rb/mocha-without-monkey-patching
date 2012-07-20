@@ -1,5 +1,6 @@
 require 'mocha_standalone'
 require 'mocha/expectation_error'
+require 'minitest/unit'
 
 Mocha::ExpectationErrorFactory.exception_class = MiniTest::Assertion
 

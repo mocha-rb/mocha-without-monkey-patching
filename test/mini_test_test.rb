@@ -5,9 +5,11 @@ require 'minitest/autorun'
 
 require 'mocha/integration/mini_test'
 
-class MiniTestTest < MiniTest::Unit::TestCase
+class MiniTest::Unit::TestCase
   include Mocha::Integration::MiniTest
+end
 
+class MiniTestTest < MiniTest::Unit::TestCase
   def setup
     if __name__ == "test_mock_object_unexpected_invocation_in_setup"
       mock = mock("not expecting invocation")

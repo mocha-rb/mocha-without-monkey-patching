@@ -3,9 +3,11 @@ require 'test_helper'
 require 'test/unit'
 require 'mocha/integration/test_unit'
 
-class TestUnitTest < Test::Unit::TestCase
+class Test::Unit::TestCase
   include Mocha::Integration::TestUnit
+end
 
+class TestUnitTest < Test::Unit::TestCase
   def setup
     if name[/^test_mock_object_unexpected_invocation_in_setup/]
       mock = mock("not expecting invocation")
